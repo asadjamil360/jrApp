@@ -1,0 +1,55 @@
+<!-- <table mat-tabel [dataSource] = "RecordData">
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstName + element.lastName}} </td>
+    </ng-container>
+</table> -->
+
+<!-- <mat-table #table [dataSource] = "datasource">
+    <ng-container  matColumnDef="confidence">
+        <mat-header-cell *matHeaderCellDef>Confidence</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.confidence}}</mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: tableColumns"></mat-row>
+</mat-table> -->
+
+<div class="container" *ngIf="ScanData.length > 0">
+    <table mat-table [dataSource]="datasource"> 
+        
+          <ng-container matColumnDef="customerName">
+            <th mat-header-cell *matHeaderCellDef> Customer Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.userObject.firstName + ' ' + element.userObject.lastName}} </td>
+          </ng-container>
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let element"> {{element.userObject.email}} </td>
+          </ng-container>
+          <ng-container matColumnDef="phno">
+            <th mat-header-cell *matHeaderCellDef> Phone Number </th>
+            <td mat-cell *matCellDef="let element"> {{element.userObject.phoneNumber}} </td>
+          </ng-container>
+          <ng-container matColumnDef="$key">
+            <th mat-header-cell *matHeaderCellDef> Scan ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.$key}} </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="confidence">
+            <th mat-header-cell *matHeaderCellDef> Confidence </th>
+            <td mat-cell *matCellDef="let element"> {{element.confidence}} </td>
+          </ng-container>
+          <ng-container matColumnDef="text">
+            <th mat-header-cell *matHeaderCellDef> Text </th>
+            <td mat-cell *matCellDef="let element"> {{element.text}} </td>
+          </ng-container>
+          <ng-container matColumnDef="createdTime">
+            <th mat-header-cell *matHeaderCellDef> Reg Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.userObject.createdTime | date:'fullDate'}} </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: tableColumns;"></tr>
+    </table>
+</div>
+<!-- 
+<p>jrecords works!</p>
+<button mat-flat-button color="warn" (click)="GetScans()">Submit</button> -->
