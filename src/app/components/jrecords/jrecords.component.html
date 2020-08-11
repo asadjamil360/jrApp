@@ -14,37 +14,41 @@
     <mat-row *matRowDef="let row; columns: tableColumns"></mat-row>
 </mat-table> -->
 
-<div class="container" *ngIf="ScanData.length > 0">
+<div class="container" *ngIf="ScanData.length > 0" >
     <table mat-table [dataSource]="datasource"> 
         
+        <ng-container matColumnDef="imageUrl">
+            <th mat-header-cell *matHeaderCellDef id="textpic"> PICTURE </th>
+            <td mat-cell *matCellDef="let element"> <img id="image" [src]="element.imagePath" (click)="openDialog(element.imagePath)"/> </td>
+          </ng-container>
           <ng-container matColumnDef="customerName">
-            <th mat-header-cell *matHeaderCellDef> Customer Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.userObject.firstName + ' ' + element.userObject.lastName}} </td>
+            <th mat-header-cell *matHeaderCellDef id="text"> CUSTOMER NAME </th>
+            <td mat-cell *matCellDef="let element" id="text"> {{element.userObject.firstName + ' ' + element.userObject.lastName}} </td>
           </ng-container>
           <ng-container matColumnDef="email">
-            <th mat-header-cell *matHeaderCellDef> Email </th>
-            <td mat-cell *matCellDef="let element"> {{element.userObject.email}} </td>
+            <th mat-header-cell *matHeaderCellDef> EMAIL </th>
+            <td mat-cell *matCellDef="let element" id="text"> {{element.userObject.email}} </td>
           </ng-container>
           <ng-container matColumnDef="phno">
-            <th mat-header-cell *matHeaderCellDef> Phone Number </th>
+            <th mat-header-cell *matHeaderCellDef> PHONE NUMBER </th>
             <td mat-cell *matCellDef="let element"> {{element.userObject.phoneNumber}} </td>
           </ng-container>
           <ng-container matColumnDef="$key">
-            <th mat-header-cell *matHeaderCellDef> Scan ID </th>
+            <th mat-header-cell *matHeaderCellDef> SCAN ID </th>
             <td mat-cell *matCellDef="let element"> {{element.$key}} </td>
           </ng-container>
     
           <ng-container matColumnDef="confidence">
-            <th mat-header-cell *matHeaderCellDef> Confidence </th>
+            <th mat-header-cell *matHeaderCellDef> CONFIDENCE </th>
             <td mat-cell *matCellDef="let element"> {{element.confidence}} </td>
           </ng-container>
           <ng-container matColumnDef="text">
-            <th mat-header-cell *matHeaderCellDef> Text </th>
-            <td mat-cell *matCellDef="let element"> {{element.text}} </td>
+            <th mat-header-cell *matHeaderCellDef> TEXT </th>
+            <td mat-cell *matCellDef="let element" id="text"> {{element.text}} </td>
           </ng-container>
           <ng-container matColumnDef="createdTime">
-            <th mat-header-cell *matHeaderCellDef> Reg Date </th>
-            <td mat-cell *matCellDef="let element"> {{element.userObject.createdTime | date:'fullDate'}} </td>
+            <th mat-header-cell *matHeaderCellDef> REG DATE </th>
+            <td mat-cell *matCellDef="let element"> {{element.userObject.createdTime | date:'MM/dd/yy' }} </td>
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: tableColumns;"></tr>

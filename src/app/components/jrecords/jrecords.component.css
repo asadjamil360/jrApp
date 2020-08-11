@@ -1,0 +1,44 @@
+* {
+    font-family: '"IBM Plex Sans"' /* Replace with your custom font */, sans-serif !important; 
+    /* Add !important to overwrite all elements */
+  }
+.mat-body{
+    font-family: "IBM Plex Sans", sans-serif !important;
+}
+.mat-typography{
+    font-family: 'IBM Plex Sans', Geneva, Verdana, sans-serif;
+}
+table{
+    width: 100%;
+}
+.mat-header-cell{
+    color: black;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+}
+.mat-cell{
+    text-align: center;
+    font-size: 14px;
+    padding: 5px;
+}
+#customer{
+    text-align: right;
+}
+#text{
+    text-align: left;
+}
+#textpic{
+    text-align: left;
+    padding-left: 2pc;
+}
+#image{
+    width: 68px;
+    height: 40px;
+    align-items: center;
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-top: 5px;
+    padding-right: 2pc;
+}
+

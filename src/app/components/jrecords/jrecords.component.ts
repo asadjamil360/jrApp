@@ -8,6 +8,8 @@ import { Jrecord } from './../../shared/jrecord';
 import { Scan } from 'src/app/shared/scan';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table'
 import { AngularMaterialModule } from '../../../app/material.module';
+import {MatDialog} from '@angular/material/dialog';
+import { ImgdialogComponent } from 'src/app/imgdialog/imgdialog.component';
 
 @Component({
   selector: 'app-jrecords',
@@ -20,12 +22,12 @@ export class JrecordsComponent implements OnInit {
   RecordData: any = [];
   ScanData: any = [];
   merged: any = [];
-  tableColumns  :  string[] = ['customerName', 'email', 'phno', '$key','confidence','text', 'createdTime']
+  tableColumns  :  string[] = ['imageUrl','customerName', 'email', 'phno', '$key','confidence','text', 'createdTime']
   
   //, 'creationDate', 'expireDate', 'policyAmount', 'clientId', 'employeeId'];
   datasource: MatTableDataSource<Scan>;
 
-  constructor(recordApi: JrecordService) {
+  constructor(recordApi: JrecordService, public dialog: MatDialog) {
     this.recordApi = recordApi;
     this.GetScans();
     console.log(this.RecordData);
@@ -55,7 +57,14 @@ export class JrecordsComponent implements OnInit {
     // });
   }
 
-
+  openDialog(imgPath){ 
+    debugger
+    if(imgPath){ 
+      this.dialog.open(ImgdialogComponent, {data: {img: imgPath}})
+    }
+    
+    //this.dialog.open(ImgdialogComponent, {data: {img: "https://firebasestorage.googleapis.com/v0/b/jrregistration.appspot.com/o/images%2F2D151521-4EB2-4FEE-BBB7-8401A21B5F02.jpg?alt=media&token=3c9b013d-a15d-4f9b-a6ea-d8fe03a89031"}})
+  }
 
   
   GetJRecords(){

@@ -16,12 +16,17 @@ import { BookService } from './shared/book.service';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JrecordsComponent } from './components/jrecords/jrecords.component';
+import { ImgdialogComponent } from './imgdialog/imgdialog.component';
+import { ImgSrcDirective } from './img-src.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    JrecordsComponent
+    JrecordsComponent,
+    ImgdialogComponent,
+    ImgSrcDirective
   ],
+  entryComponents:[ImgdialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
